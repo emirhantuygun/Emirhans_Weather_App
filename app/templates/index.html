@@ -1,0 +1,207 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Emirhan's Weather App</title>
+	<meta charset="utf-8">
+	<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" href="static/assets/css/main.css">
+</head>
+
+<body id="top">
+	<section id="banner" style="padding-top: 50px;">
+		<div class="inner">
+			<header>
+				<h1>Emirhan's Weather App</h1>
+				<br>
+				<h3>Enter Your City!</h3>
+				<form action="/" method="post">
+					
+					<input type="text" id="cityName" name="cityName" placeholder="City" 
+					{% if city %}
+					value="{{ city }}"
+					{% endif %}
+					><br>
+					<button>Find</button>
+				</form>
+				<br>
+				<div style="display: flex; align-items: center; justify-content: center;">
+					{% if data %}
+					<h1 style="display: inline;">
+						<div
+							style="background-color: #82cec6; display: inline-block; margin-right: 10px; border: transparent; border-radius: 10px; ">
+							<img style="margin: -30px 5px;"
+								src="https://openweathermap.org/img/wn/{{ data.icon }}@2x.png" alt="Icon">
+						</div>
+						{{ data.temperature }} °C
+						<div
+							style="border: 1px solid #ffffff; height: 150px; background-color: white; display:inline; border-radius: 10px; margin: 0 50px; padding: 0 1px; margin-top: 10px;">
+						</div>
+					</h1>
+					<h2 style="display: inline;margin-top: 25px;">
+						{{ data.main }}: {{ data.description }}
+					</h2>
+					{% endif %}
+				</div>
+				<br>
+				<br>
+			</header>
+			<a href="#main" class="more">Learn More</a>
+		</div>
+	</section><!-- Main -->
+	<div id="main">
+		<div class="inner">
+
+			<!-- Boxes -->
+			<div class="thumbnails">
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/istanbul.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card1 %}
+						<h3 style="display: inline;">
+							{{ card1.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>Istanbul, Turkey</h5>
+						<p>Istanbul enjoys a mix of warm summers, mild springs, and autumns perfect for sightseeing.
+							Winters are cool with occasional light snow. The city's weather adds
+							to the diverse charm all year round.</p>
+
+					</div>
+				</div>
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/paris.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card2 %}
+						<h3 style="display: inline;">
+							{{ card2.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>Paris, France</h5>
+						<p>Paris boasts a temperate climate, with warm summers and cool winters.
+							Spring and fall provide pleasant weather for exploring iconic landmarks.
+							Whether you're at the Eiffel Tower or along the Seine River, Paris charms visitors
+							with its delightful weather year-round.</p>
+
+					</div>
+				</div>
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/rome.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card3 %}
+						<h3 style="display: inline;">
+							{{ card3.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>Rome, Italy</h5>
+						<p>Rome's Mediterranean climate delivers hot summers, mild winters, and pleasant weather in
+							spring and autumn.
+							Ideal for exploring historic sites like the Colosseum, the city invites visitors to enjoy
+							its timeless beauty year-round.</p>
+
+					</div>
+				</div>
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/new_york.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card4 %}
+						<h3 style="display: inline;">
+							{{ card4.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>New York City, USA</h5>
+						<p>New York City has a diverse climate, with hot summers and cold winters. Spring and fall are
+							ideal for exploring landmarks like Central Park. Whether enjoying city lights or cultural
+							events, NYC's weather sets the stage for year-round adventures.</p>
+
+					</div>
+				</div>
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/edinburgh.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card5 %}
+						<h3 style="display: inline;">
+							{{ card5.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>Edinburgh, Scotland</h5>
+						<p>Edinburgh offers a temperate climate with cool summers and mild winters. Spring and autumn
+							are perfect for exploring historic streets and cultural festivals. The city's weather adds
+							charm to its enchanting landscapes year-round.</p>
+
+					</div>
+				</div>
+
+				<div class="box">
+					<a class="image fit"><img src="static/images/ankara.jpg" alt="" width="600" height="338"></a>
+					<div class="inner">
+
+						{% if card6 %}
+						<h3 style="display: inline;">
+							{{ card6.temperature }} °C
+						</h3>
+
+						{% endif %}
+
+						<h5>Ankara, Turkey</h5>
+						<p>Ankara has a continental climate with hot summers and cold winters. Spring and autumn are
+							ideal for exploring historical sites. Whether at the ancient citadel or enjoying the
+							cultural scene, Ankara's climate adds seasonal variety for visitors.</p>
+
+					</div>
+				</div>
+
+			</div>
+
+		</div>
+	</div>
+
+	<!-- Footer -->
+	<footer id="footer">
+		<div class="inner">
+			<h2>About</h2>
+			<p>In this project, I used OpenWeatherMap's API and I got this template from templated.co.</p>
+
+			<ul class="icons">
+				<li><a href="#" class="icon fa-twitter"><span class="label">Twitter</span></a></li>
+				<li><a href="#" class="icon fa-facebook"><span class="label">Facebook</span></a></li>
+				<li><a href="#" class="icon fa-instagram"><span class="label">Instagram</span></a></li>
+				<li><a href="#" class="icon fa-envelope"><span class="label">Email</span></a></li>
+			</ul>
+		</div>
+	</footer>
+	<div class="copyright">
+		Site made with: <a href="https://templated.co/">Templated</a>.
+	</div>
+
+	<!-- Scripts -->
+	<script src="static/assets/js/jquery.min.js"></script>
+	<script src="static/assets/js/jquery.scrolly.min.js"></script>
+	<script src="static/assets/js/jquery.poptrox.min.js"></script>
+	<script src="static/assets/js/skel.min.js"></script>
+	<script src="static/assets/js/util.js"></script>
+	<script src="static/assets/js/main.js"></script>
+</body>
+
+</html>
